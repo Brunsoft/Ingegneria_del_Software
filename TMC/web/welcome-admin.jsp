@@ -7,18 +7,29 @@
 	</head>
 	<body>
 		<form action="LoginServlet" method="post">  
-		    <fieldset style="width:450px; margin: 20px auto; ">  
+		    <fieldset style="width:300px; margin: 20px auto; ">  
 		        <legend> Welcome Administrator </legend>  
-			    <p>L'account ha ottenuto i privilegi di amministratore.<br/>
-					Scegliere dall'elenco sottostante la funzione che si vuole svolgere:<br/>
+			    <p>Scegliere la funzione che si vuole svolgere:<br/>
 				</p>
-				<ul>			
-				    <li><input type="submit" value="Crea Nuovo Account" name="tmcAction" style="width: 150px;"/></li>
-				    <li><input type="submit" value="Modifica Account" name="tmcAction" style="width: 150px;"/></li>
-				    <li><input type="submit" value="Eliminazione Account" name="tmcAction" style="width: 150px;"/></li>
-					<li><input type="submit" value="Tracking Veicolo" name="tmcAction" style="width: 150px;"/></li>
-					<li><input type="submit" value="Logout" name="tmcLogin" style="width: 150px;"/></li>
-				</ul>
+				<table>
+					<tr>
+						<td>
+							 <fieldset style="width:150px; height: 80px; margin: 0 auto; ">  
+		       					<legend> Gestione Utenti </legend>
+								<input type="submit" value="Crea Nuovo Account" name="tmcAction" style="width: 150px;"/>
+								<input type="submit" value="Modifica Account" name="tmcAction" style="width: 150px;"/>
+								<input type="submit" value="Eliminazione Account" name="tmcAction" style="width: 150px;"/>
+							</fieldset>
+						</td>
+						<td>
+							 <fieldset style="width:150px; height: 80px; margin: 0 auto; ">  
+		       					<legend> Gestione Furti </legend>
+								<input type="submit" value="Tracking Veicolo" name="tmcAction" style="width: 150px;"/>
+							</fieldset>
+						</td>
+					</tr>
+				</table>
+				<input type="submit" value="Logout" name="tmcLogin" style="width: 150px;"/>
 		    </fieldset>  
 		</form>   
 	</body>

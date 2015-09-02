@@ -22,9 +22,10 @@
 						<td>
 							<% String error = (String)request.getAttribute("dataStringa"); 
 							   try{
-									if ( error.equals("Password o Username errate") )
+									if ( !error.equals("") )
 										out.println(error);
-								}catch(Exception e){} %>
+								}catch(Exception e){} 
+							%>
 						</td> 
 		            </tr>  
 		        </table>  

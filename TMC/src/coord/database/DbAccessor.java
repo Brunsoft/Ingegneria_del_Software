@@ -94,35 +94,44 @@ public class DbAccessor {
 		return rs;
 	} // end method
 	
-	public ResultSet selectWithParam(String p_sqlSelect, ArrayList<Object> p_paramArray) {
-				
-		// dichiara un resultSet
-		ResultSet rs = null;
 
-		try {
-			// crea lo statement associato alla query			
+
+
+
+	public ResultSet selectWithParam(String p_sqlSelect, ArrayList<Object> p_paramArray) {
+
+		ResultSet rs = null;			// dichiara un resultSet
+		try {		
 			PreparedStatement comando = dbConnection.prepareStatement(p_sqlSelect);
 			
-			// se l'array dei parametri passati e' non nullo e neanche vuoto
-			if((p_paramArray != null) && (p_paramArray.size() > 0)) {
-				// inserisce i parametri passati
+			if((p_paramArray != null) && (p_paramArray.size() > 0))
 				addParameterToStatement(comando, p_paramArray);
-			}
-			// esegue la query
+
 			rs = comando.executeQuery();			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println("ANALISI DELL'ERRORE");
 			System.out.println(e.getMessage());
 			System.out.println("FINE ANALISI DELL'ERRORE");
-			//e.printStackTrace();
-			
 		}
-		
-		// ritorna il risultato
 		return rs;
-	} // end method
+	}
+
+	public boolean execute(String p_sqlSelect, ArrayList<Object> p_paramArray) {
+
+		try {		
+			PreparedStatement comando = dbConnection.prepareStatement(p_sqlSelect);
+			
+			if((p_paramArray != null) && (p_paramArray.size() > 0))
+				addParameterToStatement(comando, p_paramArray);
+
+			comando.executeQuery();			
+			
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
 	
 	
 	public ResultSet selectByPrimaryKey(String p_sqlSelect, int p_ID) {

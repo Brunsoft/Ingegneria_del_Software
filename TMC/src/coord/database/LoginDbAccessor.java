@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import coord.entity.*;  
 
 public class LoginDbAccessor extends DbAccessor {
 
@@ -22,7 +23,7 @@ public class LoginDbAccessor extends DbAccessor {
 		ArrayList<Object> parametri = new ArrayList<Object>();
 		parametri.add(nome);
 		parametri.add(pass);
-		String query = "SELECT tipo FROM Utente WHERE nome = ? and pwd = ? ";
+		String query = "SELECT tipo FROM utente WHERE nome = ? and pwd = ? ";
 		ResultSet rs = this.selectWithParam(query, parametri);
 
 		try {
@@ -33,6 +34,68 @@ public class LoginDbAccessor extends DbAccessor {
 		}
 		
 		return result;
+	}
+
+	public boolean NewUser(String nome, String cogn, String pwd, String mail, String tel) {
+		
+		ArrayList<Object> parametri = new ArrayList<Object>();
+		parametri.add(nome);
+		parametri.add(cogn);
+		parametri.add(pwd);
+		parametri.add(mail);
+		parametri.add(tel);
+		String query = "INSERT INTO utente (nome, cognome, pwd, tipo, mail,  tel) VALUES (?, ?, ?, 'U', ?, ?)";
+		boolean result = this.execute(query, parametri);
+
+		return result;
+	}
+
+	public Utente SearchUser(String mail) {
+		Utente result = new Utente();
+		ArrayList<Object> parametri = new ArrayList<Object>();
+		parametri.add(mail);
+		String query = "SELECT * FROM utente WHERE mail = ? ";
+		ResultSet rs = this.selectWithParam(query, parametri);
+
+		try {
+			if(rs.next()){
+				result.setId(rs.getInt(1));
+				result.setNome(rs.getString(2));
+				result.setCognome(rs.getString(3));
+				result.setPwd(rs.getString(4));
+				result.setTipo(rs.getString(5).charAt(0));
+				result.setEmail(rs.getString(6));
+				result.setTel(rs.getString(7));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+	public boolean UpdateUser(Utente u) {
+		
+		ArrayList<Object> parametri = new ArrayList<Object>();
+		parametri.add( u.getNome() );
+		parametri.add( u.getCognome() );
+		parametri.add( u.getPwd() );
+		parametri.add( u.getEmail() );
+		parametri.add( u.getTel() );
+		String query = "UPDATE utente set nome = ?, cognome = ?, pwd = ?, mail = ?, tel = ? WHERE id = '"+u.getId()+"' ";
+		boolean b = this.execute(query, parametri);
+		
+		return b;
+	}
+
+	public boolean DeleteUser(Utente u) {
+		
+		ArrayList<Object> parametri = new ArrayList<Object>();
+		parametri.add( u.getEmail() );
+		String query = "DELETE FROM utente WHERE mail = ? ";
+		boolean b = this.execute(query, parametri);
+		
+		return b;
 	}
 	// METODI CHE CONVERTONO IL RISULTATO IN ARRAYLIST
 	/**

@@ -134,7 +134,7 @@
 									var service = new google.maps.DistanceMatrixService();
 									//var geocoder = new google.maps.Geocoder;
 					
-								//============================================ CALCOLO TEMPO IMPEGATO ===========================================
+						//=========================== CALCOLO TEMPO IMPEGATO ===================================
 
 									var token = ora1.split(":");
 				  					var ora1Sec = (Number(token[0]) * 360) + (Number(token[1]) * 60) + Number(token[2]);
@@ -151,7 +151,7 @@
 										nDiff = (ora2Sec - ora1Sec) / 360;
 								  	}
 
-								//========================================== CALCOLO DISTANZA PERCORSA =============================================
+						//============================== CALCOLO DISTANZA PERCORSA ==================================
 									var dist;
 									service.getDistanceMatrix(
 										{
@@ -200,9 +200,6 @@
 				},
 			1000); // refresh every 1000 milliseconds
 			
-			
 		</script>
-	
-		
 	</body>
 </html>
