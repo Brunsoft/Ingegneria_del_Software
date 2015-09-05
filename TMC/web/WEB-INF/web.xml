@@ -4,37 +4,104 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
-    <servlet>
-        <servlet-name>Coordinates</servlet-name>
-        <servlet-class>coord.Coordinates</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-	<servlet>
-        <servlet-name>Updates</servlet-name>
-        <servlet-class>coord.Updates</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-     
+    
 	<servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>coord.LoginServlet</servlet-class>
+        <servlet-class>univr.is.tmc.servlet.LoginServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-    <servlet-mapping>
-        <servlet-name>Coordinates</servlet-name>
-        <url-pattern>/Coordinates</url-pattern>
-    </servlet-mapping>
+	<servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.LogoutServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-	<servlet-mapping>
-        <servlet-name>Updates</servlet-name>
-        <url-pattern>/Updates</url-pattern>
-    </servlet-mapping>
+	<servlet>
+        <servlet-name>GestioneUtenti</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.GestioneUtentiServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>ModificaUtenti</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.ModificaUtentiServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>GestioneVeicoli</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.GestioneVeicoliServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>ModificaVeicoli</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.ModificaVeicoliServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>VeicoliUtenteServlet</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.VeicoliUtenteServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>ModificaVeicoloUtenteServlet</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.ModificaVeicoloUtenteServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>MyCarsPositionServlet</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.MyCarsPositionServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
 	<servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>GestioneUtenti</servlet-name>
+        <url-pattern>/GestioneUtentiServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>ModificaUtenti</servlet-name>
+        <url-pattern>/ModificaUtentiServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>GestioneVeicoli</servlet-name>
+        <url-pattern>/GestioneVeicoliServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>ModificaVeicoli</servlet-name>
+        <url-pattern>/ModificaVeicoliServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>VeicoliUtenteServlet</servlet-name>
+        <url-pattern>/VeicoliUtenteServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>ModificaVeicoloUtenteServlet</servlet-name>
+        <url-pattern>/ModificaVeicoloUtenteServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>MyCarsPositionServlet</servlet-name>
+        <url-pattern>/MyCarsPositionServlet</url-pattern>
     </servlet-mapping>
 
     <session-config>
@@ -44,7 +111,7 @@
     </session-config>
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
 	<context-param>
