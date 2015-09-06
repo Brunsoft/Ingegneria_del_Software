@@ -25,52 +25,59 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Gestione utenti</title>
-</head>
-<body>
-	<h1>GESTIONE VEICOLI</h1>
-	<%=user%>
-	<hr/>
-	<h3>Veicoli presenti nel DataBase:</h3>
-	<form action="GestioneVeicoliServlet" method="POST" name="formFiltro">
-		<table order="1" cellpadding="1" cellspacing="5">
-			<thead>
-				<tr>
-					<th></th>
-					<th>Targa</th>
-					<th>Marca</th>
-					<th>Modello</th>
-				</tr>
-			</thead>
-			<tbody>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Gestione utenti</title>
+	</head>
+	<body>
+		<h1>GESTIONE VEICOLI</h1>
+		<div>
+			<%=user%>
+			<form action="LogoutServlet" method="POST" style="float:right">
+				<input type="submit" name="Logout" value="Logout">
+			</form>
+		</div>
+		<hr/>
+		<form action="GestioneVeicoliServlet" method="POST" name="formFiltro">
+			<% List<Veicolo> listaVeicoli = Veicolo.getVeicoli(); 
+			if ( !listaVeicoli.isEmpty() ){ %>
+				<h3>Veicoli presenti nel DataBase:</h3>
+				<table order="1" cellpadding="1" cellspacing="5">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Targa</th>
+							<th>Marca</th>
+							<th>Modello</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for (Veicolo v : listaVeicoli) { %>
 
-				<% List<Veicolo> listaVeicoli = Veicolo.getVeicoli(); %>
-				<% for (Veicolo v : listaVeicoli) { %>
-
-				<tr>
-					<td><input type="radio" name="veicoloSel" value="<%=v.getTarga()%>"></td>
-					<td><%=v.getTarga()%></td>
-					<td><%=v.getMarca()%></td>
-					<td><%=v.getModello()%></td>
-				</tr>
+						<tr>
+							<td><input type="radio" name="veicoloSel" value="<%=v.getTarga()%>" required></td>
+							<td><%=v.getTarga()%></td>
+							<td><%=v.getMarca()%></td>
+							<td><%=v.getModello()%></td>
+						</tr>
 				
-				<% } %>
-			</tbody>
-		</table>
-		<hr>
-		<input type="submit" name="azione" value="Inserisci"> 
-		<input type="submit" name="azione" value="Modifica">
-		<input type="submit" name="azione" value="Elimina" 
-				onclick="return confirm('Sei sicuro di voler eliminare il veicolo selezionato?')">
-	</form>
-	<br/>
-	<form action="LogoutServlet" method="POST">
-		<input type="submit" name="Logout" value="Logout">
-	</form>
-	<br/>
-	<a href="welcomeUser.jsp">Home</a>
+						<% } %>
+					</tbody>
+				</table>
+				<hr/>
+				<input type="submit" name="azione" value="Modifica">
+				<input type="submit" name="azione" value="Elimina" 
+						onclick="return confirm('Sei sicuro di voler eliminare il veicolo selezionato?')">
+			<% } else { %>
+				<h1>Non son presenti Veicoli!</h1>
+			<% } %>
+		</form>
+		<hr/>
+		<form action="GestioneVeicoliServlet" method="POST" name="formFiltro">
+			<input type="submit" name="azione" value="Nuovo Veicolo"> 
+		</form>
+		<hr/>
+		<a href="welcomeUser.jsp">HOMEPAGE</a>
 	
-</body>
+	</body>
 </html>

@@ -18,7 +18,7 @@ public class GestioneVeicoliServlet extends HttpServlet {
 		// Metto in sessione la modalità per la pagina dei risultati
 		request.getSession().setAttribute("azione", azione);
 
-		if (azione.equalsIgnoreCase("Inserisci"))
+		if (azione.equalsIgnoreCase("Nuovo Veicolo"))
 			response.sendRedirect("modificaVeicolo.jsp");
 
 		if (azione.equalsIgnoreCase("Modifica")) {

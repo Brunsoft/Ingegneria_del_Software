@@ -78,13 +78,13 @@ public class Veicolo {
 				params[0] = mail;
 				rs = driver.execute(query, params);
 			// se l'utente loggato è un super user le può vedere tutte
-			}else
+			}else{
 				query = "SELECT DISTINCT(v.targa), v.marca, v.modello, v.limite, v.data, v.ora, v.latitudine, v.longitudine "+
 						"FROM Veicolo v "+
 						"JOIN Gestione g ON v.targa = g.targa "+
 						"JOIN Utente u ON g.mail = u.mail ";	
 				rs = driver.execute(query, null);
-
+			}
 			while (rs.next())
 				res.add(new Veicolo(rs));
 		} catch (SQLException e) {
@@ -117,7 +117,7 @@ public class Veicolo {
 		boolean res = false;
 		try {
 			MyDriver driver = MyDriver.getInstance();
-			String query = "INSERT INTO Veicolo ( targa, marca, modello ) VALUES ( ?, ?, ?)";
+			String query = "INSERT INTO Veicolo ( targa, marca, modello, limite ) VALUES ( ?, ?, ?, '130')";
 			Object[] params = new Object[3];
 			params[0] = targa;
 			params[1] = marca;

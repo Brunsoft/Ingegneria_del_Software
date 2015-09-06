@@ -83,6 +83,12 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+	<servlet>
+        <servlet-name>AllarmiServlet</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.AllarmiServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
 
 
 
@@ -149,6 +155,11 @@
 	<servlet-mapping>
         <servlet-name>UpdateServlet</servlet-name>
         <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>AllarmiServlet</servlet-name>
+        <url-pattern>/AllarmiServlet</url-pattern>
     </servlet-mapping>
 
 

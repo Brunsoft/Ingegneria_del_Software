@@ -31,15 +31,18 @@
 	</head>
 	<body>	
 		<h1>LIVE TRACKING FURTO</h1>
-		<%=user%>
+		<div>
+			<%=user%>
+			<form action="LogoutServlet" method="POST" style="float:right">
+				<input type="submit" name="Logout" value="Logout">
+			</form>
+		</div>
 		<hr/>
 		<div id="map-canvas" style="height:400px; width:100%;"></div>
 		<hr/>
-		<form action="LogoutServlet" method="POST">
-			<input type="submit" name="Logout" value="Logout">
-		</form>
 		</br>
-		<a href="welcomeUser.jsp">Home</a>
+		<a href="sceltaVeicoloFurto.jsp">LISTA FURTI ATTIVI</a><br/>
+		<a href="welcomeUser.jsp">HOMEPAGE</a>
 		<!--p><%=session.getAttribute("messaggio")%></p-->
 		<script>
 			var icon = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/micons/cabs.png");
@@ -59,7 +62,7 @@
 		// ===================== RICAVO DALLA SERVLET TUTTE LE COORDINATE DELL'ULTIMO FURTO FINO AD ORA =====================
 			function initialize() {
 
-				$.get("TravelServlet", {idFurto:"<%=session.getAttribute("furtoLiveSel").toString()%>"}, function(responseJson) {    
+				$.get("TravelServlet", {idFurto:"<%=session.getAttribute("furtoSel").toString()%>"}, function(responseJson) {    
         			//var $ul = $("<ul>").appendTo($("#coordinatesDiv")); 
         			$.each(responseJson, function(index, item) {
             			//$("<li>").text("Lat: "+item.lat+" Lng: "+item.lng+" "+item.ora).appendTo($ul);
@@ -121,7 +124,7 @@
 				function (){
 					var origin = new google.maps.LatLng(markLAT, markLNG);						// Salvo posizione precedente 
 					ora2 = ora1;
-					$.get("UpdateServlet", {idFurto:"<%=session.getAttribute("furtoLiveSel").toString()%>"}, function(responseJson){
+					$.get("UpdateServlet", {idFurto:"<%=session.getAttribute("furtoSel").toString()%>"}, function(responseJson){
 						//var $ul = $("<ul>").appendTo($("#updateDiv")); 
 						
 						$.each(responseJson, function(index, item) {

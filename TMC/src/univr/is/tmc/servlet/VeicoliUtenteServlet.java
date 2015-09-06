@@ -18,7 +18,7 @@ public class VeicoliUtenteServlet extends HttpServlet {
 		// Metto in sessione la modalità per la pagina dei risultati
 		request.getSession().setAttribute("azione", azione);
 
-		if (azione.equalsIgnoreCase("Inserisci"))
+		if (azione.equalsIgnoreCase("Nuova Associazione"))
 			response.sendRedirect("modificaVeicoloUtente.jsp");
 
 		if (azione.equalsIgnoreCase("Modifica")) {

@@ -2,6 +2,7 @@ package univr.is.tmc.servlet;
 
 import univr.is.tmc.entity.Utente;
 
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,7 @@ public class GestioneUtentiServlet extends HttpServlet {
 		// Metto in sessione la modalità per la pagina dei risultati
 		request.getSession().setAttribute("azione", azione);
 
-		if (azione.equalsIgnoreCase("Inserisci"))
+		if (azione.equalsIgnoreCase("Nuovo Utente"))
 			response.sendRedirect("modificaUtente.jsp");
 
 		if (azione.equalsIgnoreCase("Modifica")) {
@@ -28,15 +29,30 @@ public class GestioneUtentiServlet extends HttpServlet {
 		if (azione.equalsIgnoreCase("Elimina")) {
 			// Sei sicuro? --> Eliminazione effettuata con successo
 			// Elimina
-			if (Utente.eliminaUtente(utenteSel)) {
-				if (utenteSel.equals(request.getSession().getAttribute("currUserEmail").toString()))
-					request.getSession().invalidate();
-				request.getSession().setAttribute("messaggio", "Eliminazione effettuata con successo!");
-			} else {
-				// Inserimento non andato a buon fine
-				request.getSession().setAttribute("messaggio", "Errore!");
-			}
+			if (otherAdmin(utenteSel)){
+				if (Utente.eliminaUtente(utenteSel)) {
+					if (utenteSel.equals(request.getSession().getAttribute("currUserEmail").toString()))
+						request.getSession().invalidate();
+					request.getSession().setAttribute("messaggio", "Eliminazione effettuata con successo!");
+				} else {
+					// Inserimento non andato a buon fine
+					request.getSession().setAttribute("messaggio", "Errore!");
+				}
+			}else
+				request.getSession().setAttribute("messaggio", "Errore! Non puoi elliminare l'ultimo Amministratore!");
 			response.sendRedirect("modificaEffettuata.jsp");
 		}
+	}
+
+	private boolean otherAdmin(String utenteSel){
+		int count = 0;
+		List<Utente> listaUtenti = Utente.getUsers();
+		for ( Utente u : listaUtenti ){
+			if ( u.getPrivilegi() == 'A' && (!u.getEmail().equals(utenteSel)) )
+				count ++;
+		}
+		if ( count > 0 )
+			return true;
+		return false;
 	}
 }

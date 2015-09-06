@@ -2,9 +2,7 @@ package univr.is.tmc.servlet;
 
 import univr.is.tmc.entity.Utente;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +19,7 @@ public class ModificaUtentiServlet extends HttpServlet {
 		// valutazione se si deve andare in uno dei modi DML
 		String azione = request.getSession().getAttribute("azione").toString();
 
-		if (azione.equalsIgnoreCase("Inserisci")) {
+		if (azione.equalsIgnoreCase("Nuovo Utente")) {
 			// I dati nella form sono corretti?
 			if (controllaDati(request))
 				// Esiste già?
@@ -104,12 +102,23 @@ public class ModificaUtentiServlet extends HttpServlet {
 		String messaggio = "";
 		// Controllo dati
 		// Se uno fallisce ret false
-
 		String email = request.getSession().getAttribute("azione").toString()
-				.equalsIgnoreCase("Inserisci") ? request.getParameter(
+				.equalsIgnoreCase("Nuovo Utente") ? request.getParameter(
 				"email").toString() : request.getSession().getAttribute("utenteSel").toString();
+			
+		// nel sistema ci deve essere almeno un amministratore 
+		int count = 0;
+		List<Utente> listaUtenti = Utente.getUsers();
+		if ( request.getParameter("privilegi").toString().charAt(0) != 'A' ){
+			for ( Utente u : listaUtenti ){
+				if ( u.getPrivilegi() == 'A' && (!u.getEmail().equals(email)) )
+					count ++;
+			}
+			if ( count == 0 )
+				messaggio += "Deve essere presente almeno un amministratore!</br>";
+		}
 
-			// La password eve contenere almeno 6 caratteri
+		// La password eve contenere almeno 6 caratteri
 		if (request.getParameter("password").toString().length() < 5)
 			messaggio += "La password deve contenere almeno 6 caratteri </br>";
 

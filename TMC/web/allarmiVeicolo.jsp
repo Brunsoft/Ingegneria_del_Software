@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" 
-	import="univr.is.tmc.entity.Veicolo"
+	import="univr.is.tmc.entity.*"
 	import="java.util.*" 
 	import="java.sql.*" %>
 <%
 	String user = "";
+	String targa = "";
     char userMode = 'U';
-    char minMode = 'A';
+    char minMode = 'U';
     if(session.getAttribute("currUserEmail") == null)
         response.sendRedirect("login.jsp");
     else {
+		targa = session.getAttribute("veicoloSel").toString();
         user = session.getAttribute("currUserEmail").toString();
         userMode = session.getAttribute("currUserMode").toString().charAt(0);
 
@@ -27,51 +29,47 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Gestione limiti</title>
+		<title>Visualizza Allarmi</title>
 	</head>
 	<body>
-		<h1>GESTIONE LIMITI DI VELOCITA</h1>
+		<h1>ALLARMI ATTIVATI</h1>
 		<div>
-				<%=user%>
-				<form action="LogoutServlet" method="POST" style="float:right">
-					<input type="submit" name="Logout" value="Logout">
-				</form>
-			</div>
+			<%=user%>
+			<form action="LogoutServlet" method="POST" style="float:right">
+				<input type="submit" name="Logout" value="Logout">
+			</form>
+		</div>
 		<hr/>
-		<h3>Veicoli presenti nel DataBase:</h3>
-		<form action="GestioneLimitiServlet" method="POST" name="formFiltro">
+	
+		<%	List<Allarme> listaAllarmi = Allarme.getAllarmi(targa); 
+		if (!listaAllarmi.isEmpty()){ %>
 			<table order="1" cellpadding="1" cellspacing="5">
 				<thead>
 					<tr>
-						<th></th>
-						<th>Targa</th>
-						<th>Marca</th>
-						<th>Modello</th>
+						<th>Data</th>
+						<th>Ora</th>
 						<th>Limite</th>
+						<th>Velocita</th>
 					</tr>
 				</thead>
 				<tbody>
-
-					<% List<Veicolo> listaVeicoli = Veicolo.getVeicoli(); %>
-					<% for (Veicolo v : listaVeicoli) { %>
-
-					<tr>
-						<td><input type="radio" name="carLimSel" value="<%=v.getTarga()%>" required></td>
-						<td><%=v.getTarga()%></td>
-						<td><%=v.getMarca()%></td>
-						<td><%=v.getModello()%></td>
-						<td><%=v.getLimite()%> Km/h</td>
-					</tr>
-				
+					<%	for (Allarme a : listaAllarmi) { %>
+						<tr>
+							<td><%=a.getData()%></td>
+							<td><%=a.getOra()%></td>
+							<td><%=(a.getVelocita() - a.getDiffVelocita())%> Km/h</td>
+							<td><%=a.getVelocita()%> Km/h</td>
+						</tr>
 					<% } %>
 				</tbody>
 			</table>
-			<hr>
-			<input type="submit" name="azione" value="Modifica">
-			<input type="submit" name="azione" value="Azzera" 
-					onclick="return confirm('Azzerando il limite, gli allarmi su questo veicolo verranno disattivati.\n\nProsegurire?')">
-		</form>
+			<hr/>
+			<input type="submit" name="azione" value="Vedi Allarmi">
+		<% } else { %>
+			<h1>Nessun allarme attivato su questo veicolo!</h1>
+		<% } %>
 		<hr/>
+		<a href="sceltaVeicolo.jsp">ELENCO VEICOLI</a><br/>
 		<a href="welcomeUser.jsp">HOMEPAGE</a>
 	</body>
 </html>

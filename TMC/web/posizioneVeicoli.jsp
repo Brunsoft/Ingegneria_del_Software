@@ -31,15 +31,16 @@
 	</head>
 	<body>	
 		<h1>POSIZIONE VEICOLI</h1>
-		<%=user%>
+		<div>
+			<%=user%>
+			<form action="LogoutServlet" method="POST" style="float:right">
+				<input type="submit" name="Logout" value="Logout">
+			</form>
+		</div>
 		<hr/>
 		<div id="updateDiv"></div>
 		<hr/>
-		<form action="LogoutServlet" method="POST">
-			<input type="submit" name="Logout" value="Logout">
-		</form>
-		</br>
-		<a href="welcomeUser.jsp">Home</a>
+		<a href="welcomeUser.jsp">HOMEPAGE</a>
 		<!--p><%=session.getAttribute("messaggio")%></p-->
 		<script>
 			var icon = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/micons/cabs.png");

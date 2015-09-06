@@ -29,21 +29,23 @@
 	</head>
 	<body>
 		<h1><%=session.getAttribute("messaggio")%></h1>
-		<%=user%>
+		<div>
+			<%=user%>
+			<form action="LogoutServlet" method="POST" style="float:right">
+				<input type="submit" name="Logout" value="Logout">
+			</form>
+		</div>
 		<hr/>
-		<a href="gestioneUtenti.jsp">Torna a GESTIONE UTENTI</a>
+		<a href="gestioneUtenti.jsp">GESTIONE UTENTI</a>
 		<br/>
-		<a href="gestioneVeicoli.jsp">Torna a GESTIONE VEICOLI</a>
+		<a href="gestioneVeicoli.jsp">GESTIONE VEICOLI</a>
 		<br/>
-		<a href="gestioneVeicoliUtente.jsp">Torna a ASSOCIA VEICOLI-UTENTE</a>
+		<a href="gestioneVeicoliUtente.jsp">ASSOCIA VEICOLI - UTENTE</a>
 		<br/>
-		<a href="gestioneLimite.jsp">Torna a GESTIONE LIMITI</a>
+		<a href="gestioneLimite.jsp">GESTIONE LIMITI</a>
 		<br/>
 		<br/>
-		<a href="welcomeUser.jsp">Torna alla HOME</a>
+		<a href="welcomeUser.jsp">HOMEPAGE</a>
 		<hr/>
-		<form action="LogoutServlet" method="POST">
-			<input type="submit" name="Logout" value="Logout">
-		</form>
 	</body>
 </html>

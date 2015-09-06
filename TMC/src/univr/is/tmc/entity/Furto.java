@@ -15,7 +15,7 @@ public class Furto {
 	private String data;
 	private String ora;
 	private List<Posizione> posizioni = new ArrayList<>();
-	private static int TEMP = 60;
+	private static int TEMP = 120;
 
 	// ============== COSTRUTTORI ====================================================
 
@@ -60,6 +60,30 @@ public class Furto {
 				params[1] = v.getTarga();
 				params[2] = data;
 				params[3] = ora;	
+
+				ResultSet rs = driver.execute(query, params);
+
+				while (rs.next())
+					res.add(new Furto(rs));
+			}
+		} catch (SQLException e) {
+			System.out.println("Select fallita! " + e);
+		}
+		return res;
+	}
+
+	public static List<Furto> getStoricoFurtiUtente(String email) 
+	{	
+		List<Furto> res = new ArrayList<>();
+		List<Veicolo> veicoli = Veicolo.getVeicoliUser( email );
+		try {
+			MyDriver driver = MyDriver.getInstance();
+			
+			for (Veicolo v : veicoli){
+				// se l'utente loggato è un user può visualizzare solo le proprie autovetture
+				String query = "SELECT id, targa, data, ora FROM Furto where targa = ? ORDER BY(data)";
+				Object[] params = new Object[1];
+				params[0] = v.getTarga();
 
 				ResultSet rs = driver.execute(query, params);
 

@@ -49,13 +49,17 @@ public class TravelServlet extends HttpServlet {
 
 		// valutazione se si deve andare in uno dei modi DML
 		String azione = request.getParameter("azione");
-		String furtoLiveSel = request.getParameter("furtoLiveSel");
+		String furtoSel = request.getParameter("furtoSel");
 		// Metto in sessione la modalità per la pagina dei risultati
 		request.getSession().setAttribute("azione", azione);
 
 		if (azione.equalsIgnoreCase("Live Tracking")) {
-			request.getSession().setAttribute("furtoLiveSel", furtoLiveSel);
+			request.getSession().setAttribute("furtoSel", furtoSel);
 			response.sendRedirect("liveTracking.jsp");
+		}
+		if (azione.equalsIgnoreCase("Guarda Percorso")) {
+			request.getSession().setAttribute("furtoSel", furtoSel);
+			response.sendRedirect("furtoSel.jsp");
 		}
 	}
 	

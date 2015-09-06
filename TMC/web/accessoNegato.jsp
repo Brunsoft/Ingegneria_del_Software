@@ -20,7 +20,7 @@
 		mode: <%=mode%>
 		</br>
 		<hr>
-		<a href="<%=home%>">Torna alla Home</a>
+		<a href="<%=home%>">HOMEPAGE</a>
 		<hr>
 	</body>
 </html>

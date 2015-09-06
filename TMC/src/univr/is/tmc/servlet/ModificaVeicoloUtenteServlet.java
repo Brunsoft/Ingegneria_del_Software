@@ -18,7 +18,7 @@ public class ModificaVeicoloUtenteServlet extends HttpServlet {
 		// valutazione se si deve andare in uno dei modi DML
 		String azione = request.getSession().getAttribute("azione").toString();
 
-		if (azione.equalsIgnoreCase("Inserisci")) {
+		if (azione.equalsIgnoreCase("Nuova Associazione")) {
 			// I dati nella form sono corretti?
 			if (controllaDati(request))
 				// Esiste già l'Utente?

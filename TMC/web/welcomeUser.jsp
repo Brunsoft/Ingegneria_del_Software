@@ -33,30 +33,33 @@
 		<% }else{ %>
 			<h1>BENVENUTO UTENTE</h1>
 		<% } %>
-		<%=user%>
+		<div>
+			<%=user%>
+			<form action="LogoutServlet" method="POST" style="float:right">
+				<input type="submit" name="Logout" value="Logout">
+			</form>
+		</div>
 		<hr/>
 		<h3>Selezionare una funzionalita:</h3>
-
 			<% if( userMode == 'A' ){ %>
-				<ul>
-					<li><a href="gestioneUtenti.jsp">Gestione Utenti</a></li>
-					<li><a href="gestioneVeicoli.jsp">Gestione Veicoli</a></li>
-					<li><a href="gestioneVeicoliUtente.jsp">Associa Veicoli-Utente</a></li>
-					<li><a href="gestioneLimite.jsp">Imposta Allarmi Velocita</a></li>
-				</ul>
+				<fieldset style="width:250px; margin: 20px; ">  
+		        	<legend>Operazioni Amministratore</legend>
+					<a href="gestioneUtenti.jsp">GESTIONE UTENTI</a><br/>
+					<a href="gestioneVeicoli.jsp">GESTIONE VEICOLI</a><br/>
+					<a href="gestioneVeicoliUtente.jsp">ASSOCIA VEICOLI - UTENTE</a><br/>
+					<a href="gestioneLimite.jsp">IMPOSTA ALLARMI VELOCITA'</a><br/>
+				</fieldset>
 			<% } %>
 
 			<% if( userMode == 'U' || userMode == 'A'){ %>
-				<ul>
-					<li><a href="track.jsp">Posizione Veicoli</a></li>
-					<li><a href="sceltaVeicoloFurto.jsp">Live Tracking Furto</a></li>
-					<li>Storico Furti</li>
-				</ul>
+				<fieldset style="width:250px; margin: 20px; ">  
+		        	<legend>Operazioni Utente</legend>
+					<a href="posizioneVeicoli.jsp">POSIZIONE VEICOLI</a><br/>
+					<a href="sceltaVeicoloFurto.jsp">LIVE TRACKING FURTO</a><br/>
+					<a href="sceltaStoricoFurto.jsp">STORICO FURTI</a><br/>
+					<a href="sceltaVeicolo.jsp">VISUALIZZA ALLARMI</a><br/>
+				</fieldset>
 			<% } %>
-
 		<hr/>
-		<form action="LogoutServlet" method="POST">
-			<input type="submit" name="Logout" value="Logout">
-		</form>
 	</body>
 </html>
