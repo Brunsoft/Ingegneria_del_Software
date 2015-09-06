@@ -42,14 +42,14 @@
 					<li><a href="gestioneUtenti.jsp">Gestione Utenti</a></li>
 					<li><a href="gestioneVeicoli.jsp">Gestione Veicoli</a></li>
 					<li><a href="gestioneVeicoliUtente.jsp">Associa Veicoli-Utente</a></li>
-					<li>Imposta Allarmi Velocita</li>
+					<li><a href="gestioneLimite.jsp">Imposta Allarmi Velocita</a></li>
 				</ul>
 			<% } %>
 
 			<% if( userMode == 'U' || userMode == 'A'){ %>
 				<ul>
 					<li><a href="track.jsp">Posizione Veicoli</a></li>
-					<li>Live Tracking Furto</li>
+					<li><a href="sceltaVeicoloFurto.jsp">Live Tracking Furto</a></li>
 					<li>Storico Furti</li>
 				</ul>
 			<% } %>

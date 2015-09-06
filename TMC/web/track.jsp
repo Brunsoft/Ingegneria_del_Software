@@ -40,7 +40,7 @@
 		</form>
 		</br>
 		<a href="welcomeUser.jsp">Home</a>
-		<p><%=session.getAttribute("messaggio")%></p>
+		<!--p><%=session.getAttribute("messaggio")%></p-->
 		<script>
 			var icon = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/micons/cabs.png");
 			var map;

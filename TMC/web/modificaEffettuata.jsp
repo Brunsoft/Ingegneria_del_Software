@@ -25,23 +25,25 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Gestione utenti</title>
+		<title>Pagina di Modifica</title>
 	</head>
 	<body>
-		</br>
-		</br>
 		<h1><%=session.getAttribute("messaggio")%></h1>
-		<hr>
-		</br>
-		<a href="gestioneUtenti.jsp">Torna a gestione utenti</a>
-		</br>
-		<a href="gestioneVeicoli.jsp">Torna a gestione veicoli</a>
-		</br>
-		<a href="welcomeUser.jsp">Torna alla Home</a>
-		<hr>
+		<%=user%>
+		<hr/>
+		<a href="gestioneUtenti.jsp">Torna a GESTIONE UTENTI</a>
+		<br/>
+		<a href="gestioneVeicoli.jsp">Torna a GESTIONE VEICOLI</a>
+		<br/>
+		<a href="gestioneVeicoliUtente.jsp">Torna a ASSOCIA VEICOLI-UTENTE</a>
+		<br/>
+		<a href="gestioneLimite.jsp">Torna a GESTIONE LIMITI</a>
+		<br/>
+		<br/>
+		<a href="welcomeUser.jsp">Torna alla HOME</a>
+		<hr/>
 		<form action="LogoutServlet" method="POST">
 			<input type="submit" name="Logout" value="Logout">
 		</form>
-		<hr>
 	</body>
 </html>

@@ -59,6 +59,33 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+	<servlet>
+        <servlet-name>GestioneLimitiServlet</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.GestioneLimitiServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>ModificaLimitiServlet</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.ModificaLimitiServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>TravelServlet</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.TravelServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.UpdateServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
+
+
 	<servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -103,6 +130,27 @@
         <servlet-name>MyCarsPositionServlet</servlet-name>
         <url-pattern>/MyCarsPositionServlet</url-pattern>
     </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>GestioneLimitiServlet</servlet-name>
+        <url-pattern>/GestioneLimitiServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>ModificaLimitiServlet</servlet-name>
+        <url-pattern>/ModificaLimitiServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>TravelServlet</servlet-name>
+        <url-pattern>/TravelServlet</url-pattern>
+    </servlet-mapping>UpdateServlet
+
+	<servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+
 
     <session-config>
         <session-timeout>

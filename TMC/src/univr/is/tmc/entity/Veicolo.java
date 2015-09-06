@@ -12,6 +12,7 @@ public class Veicolo {
 	private String targa;
 	private String marca;
 	private String modello;
+	private int limite;
 	private String data;
 	private String ora;
 	private String latitudine;
@@ -31,6 +32,7 @@ public class Veicolo {
 		this.targa = rs.getString("targa");
 		this.marca = rs.getString("marca");
 		this.modello = rs.getString("modello");
+		this.limite = rs.getInt("limite");
 		this.data = rs.getString("data");
 		this.ora = rs.getString("ora");
 		this.latitudine = ""+rs.getBigDecimal("latitudine");
@@ -69,7 +71,7 @@ public class Veicolo {
 			ResultSet rs;
 			// se l'utente loggato è un user può visualizzare solo le proprie autovetture
 			if( privilegi == 'U'){
-				query = "SELECT v.targa, v.marca, v.modello, v.data, v.ora, v.latitudine, v.longitudine FROM Veicolo v "+
+				query = "SELECT v.targa, v.marca, v.modello, v.limite, v.data, v.ora, v.latitudine, v.longitudine FROM Veicolo v "+
 						"JOIN Gestione g ON v.targa = g.targa "+
 						"JOIN Utente u ON g.mail = u.mail WHERE u.mail = ? ";
 				Object[] params = new Object[1];
@@ -77,7 +79,8 @@ public class Veicolo {
 				rs = driver.execute(query, params);
 			// se l'utente loggato è un super user le può vedere tutte
 			}else
-				query = "SELECT v.targa, v.marca, v.modello, v.data, v.ora, v.latitudine, v.longitudine FROM Veicolo v "+
+				query = "SELECT DISTINCT(v.targa), v.marca, v.modello, v.limite, v.data, v.ora, v.latitudine, v.longitudine "+
+						"FROM Veicolo v "+
 						"JOIN Gestione g ON v.targa = g.targa "+
 						"JOIN Utente u ON g.mail = u.mail ";	
 				rs = driver.execute(query, null);
@@ -97,7 +100,7 @@ public class Veicolo {
 		try {
 			MyDriver driver = MyDriver.getInstance();
 			// se l'utente loggato è un user può visualizzare solo le proprie autovetture
-			String query = "SELECT targa, marca, modello, data, ora, latitudine, longitudine FROM Veicolo ";
+			String query = "SELECT targa, marca, modello, limite, data, ora, latitudine, longitudine FROM Veicolo ";
 			ResultSet rs = driver.execute(query, null);
 			// se l'utente loggato è un super user le può vedere tutte
 			
@@ -183,6 +186,24 @@ public class Veicolo {
 		return res;
 	}
 
+	public static boolean impostaLimite(String targa, int limite) {
+		boolean res = false;
+		try {
+			MyDriver driver = MyDriver.getInstance();
+			String query = "UPDATE Veicolo SET limite = ? WHERE targa = ?";
+			Object[] params = new Object[2];
+			params[0] = limite;
+			params[1] = targa;
+			// Se modifica 1 riga allora è andato a buon fine
+			if (driver.update(query, params) == 1)
+				res = true;
+		} catch (SQLException e) {
+			System.out.println("Select faillita! " + e);
+		}
+		return res;
+	}
+
+
 	// =========== METODI SET/GET =============================================================
 
 	public String getTarga() {
@@ -207,6 +228,14 @@ public class Veicolo {
 
 	public void setModello(String modello) {
 		this.modello = modello;
+	}
+
+	public int getLimite() {
+		return limite;
+	}
+
+	public void setLimite(int limite) {
+		this.limite = limite;
 	}
 
 	public String getData() {
