@@ -101,7 +101,7 @@ public class PosizioneFurto {
 	 * @return boolean che indica il successo dell'azione di INSERT
 	 */
 
-    public static boolean inserisciPosizione(int idFurto, double latitudine, double longitudine, String ora, int velocita) 
+    public static boolean inserisciPosizione(int idFurto, String latitudine, String longitudine, String ora, String velocita) 
 	{
 		boolean res = false;
 		try {
@@ -111,7 +111,7 @@ public class PosizioneFurto {
 			params[0] = idFurto;
 			params[1] = latitudine;
 			params[2] = longitudine;
-			params[3] = java.sql.Time.valueOf(ora);
+			params[3] = ora;
 			params[4] = velocita;
 			// Se modifica 1 riga allora è andato a buon fine
 			if (driver.update(query, params) == 1)

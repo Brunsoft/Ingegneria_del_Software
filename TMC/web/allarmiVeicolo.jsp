@@ -63,8 +63,6 @@
 					<% } %>
 				</tbody>
 			</table>
-			<hr/>
-			<input type="submit" name="azione" value="Vedi Allarmi">
 		<% } else { %>
 			<h1>Nessun allarme attivato su questo veicolo!</h1>
 		<% } %>

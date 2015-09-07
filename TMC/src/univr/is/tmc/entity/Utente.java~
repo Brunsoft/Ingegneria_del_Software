@@ -46,14 +46,6 @@ public class Utente {
 
 	// ============== METODI ==========================================================
 
-	/**
-	 * Ritorna un Utente ricavato dal campo "email"
-	 *
-	 * @param email Email dell'utente da cercare
-	 * @return Utente contenente tutte le sue informazioni
-	 */
-
-
 	public static Utente getUserData(String email) 
 	{
 		Utente res = null;
@@ -71,12 +63,6 @@ public class Utente {
 		return res;
 	}
 
-	/**
-	 * Ritorno tutti gli utenti nel sistema
-	 *
-	 * @return List di Utente contenente tutti gli utenti nel sistema
-	 */
-
 	public static List<Utente> getUsers() 
 	{
 		List<Utente> res = new ArrayList<>();
@@ -91,18 +77,6 @@ public class Utente {
 		}
 		return res;
 	}
-
-	/**
-	 * Inserisco un Utente nel sistema
-	 *
-	 * @param email Email del nuovo utente
-	 * @param nome Nome del nuovo utente
-	 * @param cognome Cognome del nuovo utente
-	 * @param password Password del nuovo utente
-	 * @param privilegi Privilegi del nuovo utente
-	 * @return boolean che indica il successo dell'azione di INSERT
-	 */
-
 
 	public static boolean inserisciUtente(String email, String nome, String cognome, String password, char privilegi, String telefono) 
 	{
@@ -127,18 +101,6 @@ public class Utente {
 		return res;
 	}
 
-	/**
-	 * Modifica i dati dell'utente "email"
-	 *
-	 * @param email Email dell'utente da modificare
-	 * @param nome Nuovo Nome utente
-	 * @param cognome Nuovo Cognome utente
-	 * @param password Nuova Password utente
-	 * @param privilegi Nuovi Privilegi utente
-     * @param telefono Nuovo Telefono utente
-	 * @return boolean che indica il successo dell'azione di UPDATE
-	 */
-
 	public static boolean modificaUtente(String email, String nome, String cognome, String password, char privilegi, String telefono) 
 	{
 		boolean res = false;
@@ -162,13 +124,6 @@ public class Utente {
 		return res;
 	}
 
-	/**
-	 * Elimino Utente "email"
-	 *
-	 * @param email Email dell'utente da eliminare
-	 * @return boolean che indica il successo dell'azione della DELETE
-	 */
-
 	public static boolean eliminaUtente(String email) {
 		boolean res = false;
 		try {
@@ -184,14 +139,6 @@ public class Utente {
 		}
 		return res;
 	}
-
-	/**
-	 * Cerco se nel database e' presente l'utente "email"
-	 *
-	 * @param email Email dell'utente da ricercare
-	 * @return boolean che indica il successo dell'azione della SELECT -> Utente trovato
-	 */
-
 
 	public static boolean trovaUtente(String email) {
 		boolean res = false;

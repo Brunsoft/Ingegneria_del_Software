@@ -26,11 +26,10 @@ public class GestioneLimitiServlet extends HttpServlet {
 
 		String azione = request.getParameter("azione");
 		String veicoloSel = request.getParameter("carLimSel");
-		// setAttribute di azione
+		// setAttribute dei valori Utili
 		request.getSession().setAttribute("azione", azione);
 
 		if (azione.equalsIgnoreCase("Modifica")) {
-		    // setAttribute di carLimSel
 			request.getSession().setAttribute("carLimSel", veicoloSel);
 			response.sendRedirect("modificaLimite.jsp");
 		}

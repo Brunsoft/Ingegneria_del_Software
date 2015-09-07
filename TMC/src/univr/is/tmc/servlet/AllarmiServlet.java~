@@ -8,21 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class AllarmiServlet extends HttpServlet {
-    
-    /**
-	 * Servlet Allarmi, 
-     * IF (azione = "Vedi allarmi")
-     *   set Attribute "veicoloSel"
-	 *   vai a allarmiVeicolo.jsp
-	 * 
-	 */
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, java.io.IOException {
 
+		// valutazione se si deve andare in uno dei modi DML
 		String azione = request.getParameter("azione");
 		String veicoloSel = request.getParameter("veicoloSel");
-		// setAttribute dei valori Utili
+		// Metto in sessione la modalità per la pagina dei risultati
 		request.getSession().setAttribute("azione", azione);
 		request.getSession().setAttribute("veicoloSel", veicoloSel);
 

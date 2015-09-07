@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class TravelServlet extends HttpServlet {
 
     /**
-	 * TravelServlet, utilizzata dal JavaScript StoricoFurti e LiveTracking
+	 * TravelServlet, 
      * trova tutte le posizioni dall'inizio, del furto scelto, fino ad ora
      * inserisco le posizioni in un Map e inglobo in un jSon
 	 */

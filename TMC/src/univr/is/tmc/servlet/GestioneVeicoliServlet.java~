@@ -28,14 +28,13 @@ public class GestioneVeicoliServlet extends HttpServlet {
 
 		String azione = request.getParameter("azione");
 		String veicoloSel = request.getParameter("veicoloSel");
-		// setAttribute di azione
+		// Metto in sessione la modalità per la pagina dei risultati
 		request.getSession().setAttribute("azione", azione);
 
 		if (azione.equalsIgnoreCase("Nuovo Veicolo"))
 			response.sendRedirect("modificaVeicolo.jsp");
 
 		if (azione.equalsIgnoreCase("Modifica"))
-            // setAttribute di veicoloSel
 			request.getSession().setAttribute("veicoloSel", veicoloSel);
 			response.sendRedirect("modificaVeicolo.jsp");
 

@@ -19,17 +19,17 @@ public class MyDriver {
 	private MyDriver() {
 
 		try {
-			Class.forName("org.postgresql.Driver");
-			//Class.forName("com.mysql.jdbc.Driver");
+			//Class.forName("org.postgresql.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		}
-		sUrlDB = "jdbc:postgresql://dbserver.scienze.univr.it/dblab23";
-		//sUrlDB = "jdbc:mysql://localhost:3306/TMC";
-		sUserNameDB = "userlab23";
-		//sUserNameDB = "root";
-		sPasswordDB = "ventitreDF";
-		//sPasswordDB = "luca";
+		//sUrlDB = "jdbc:postgresql://dbserver.scienze.univr.it/dblab23";
+		sUrlDB = "jdbc:mysql://localhost:3306/TMC";
+		//sUserNameDB = "userlab23";
+		sUserNameDB = "root";
+		//sPasswordDB = "ventitreDF";
+		sPasswordDB = "luca";
 		try {
 			connection = DriverManager.getConnection(sUrlDB, sUserNameDB, sPasswordDB);
 		} catch (SQLException e) {

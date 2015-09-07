@@ -49,13 +49,6 @@ public class MyCarsPositionServlet extends HttpServlet {
 
 	}
 	
-    /**
-	 * Cerca la posizione corrente dei veicoli gestiti dall'utente corrente
-	 *
-	 * @param request contiene l'email dell'utente corrente
-	 * @return List Posizione dei veicoli gestiti
-	 */
-
 	private List<Posizione> trovaPosizioneVeicoli(HttpServletRequest request)
 	{
 		List<Posizione> posVeicoli;

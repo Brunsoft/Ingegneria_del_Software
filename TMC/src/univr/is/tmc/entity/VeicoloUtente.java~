@@ -169,7 +169,7 @@ public class VeicoloUtente {
 	 *
 	 * @param targa Targa veicolo in questione
 	 * @param email Email utente in questione
-	 * @return boolean che indica il successo dell'azione della SELECT
+	 * @return boolean che indica il successo dell'azione di SELECT
 	 */
 
 	public static boolean trovaVeicoloUtente(String targa, String email) {

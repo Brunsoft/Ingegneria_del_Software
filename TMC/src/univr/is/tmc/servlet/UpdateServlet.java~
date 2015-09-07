@@ -45,13 +45,6 @@ public class UpdateServlet extends HttpServlet {
 
 	}
 	
-    /**
-	 * Cerca l'ultima Posizione del Furto in questione
-	 *
-	 * @param request contiene l'id del furto in questione
-	 * @return PosizioneFurto con l'ultima posizione del ladro
-	 */
-
 	private PosizioneFurto trovaPosizioneVeicolo(HttpServletRequest request)
 	{
 		int idFurto = Integer.parseInt(request.getParameter("idFurto").toString());

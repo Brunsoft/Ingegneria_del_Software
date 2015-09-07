@@ -17,7 +17,7 @@ public class Furto {
 	private List<Posizione> posizioni = new ArrayList<>();
 
 	// Delay passato il quale un furto Attivo scade ed e' disponibile solo nello storico
-    private static int TEMP = 10;
+    private static int TEMP = 60;
 
 	// ============== COSTRUTTORI ====================================================
 

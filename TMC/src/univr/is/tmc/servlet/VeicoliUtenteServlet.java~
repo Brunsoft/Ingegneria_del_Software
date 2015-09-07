@@ -38,11 +38,11 @@ public class VeicoliUtenteServlet extends HttpServlet {
 			response.sendRedirect("modificaVeicoloUtente.jsp");
 		}
 		if (azione.equalsIgnoreCase("Elimina")) {
-
+			// Sei sicuro? --> Eliminazione effettuata con successo
+			// Elimina
 			String[] items = veicoloUtenteSel.split(",");
 			String targa = items[0];
 			String email = items[1];
-            // Elimina
 			if (VeicoloUtente.eliminaVeicoloUtente(targa, email)) {
 				// Eliminazione andata a buon fine
 				request.getSession().setAttribute("messaggio", "Eliminazione effettuata con successo!");

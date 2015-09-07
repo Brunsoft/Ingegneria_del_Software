@@ -138,8 +138,9 @@ public class Veicolo {
 	 * @param targa Targa Nuovo veicolo
 	 * @param marca Nuovo veicolo
 	 * @param modello Nuovo veicolo
-	 * @return boolean che indica il successo dell'azione della INSERT
+	 * @return boolean che indica il successo dell'azione di INSERT
 	 */
+
 
 	public static boolean inserisciVeicolo(String targa, String marca, String modello) 
 	{
@@ -161,15 +162,6 @@ public class Veicolo {
 		return res;
 	}
 
-	/**
-	 * Modifico i dati del veicolo targato "targa"
-	 *
-	 * @param targa Targa veicolo in questione
-	 * @param marca Nuova Marca del veicolo in questione
-	 * @param modello Nuovo modello del veicolo in questione
-	 * @return boolean che indica il successo dell'azione dell'UPDATE
-	 */
-
 	public static boolean modificaVeicolo(String targa, String marca, String modello) 
 	{
 		boolean res = false;
@@ -190,13 +182,6 @@ public class Veicolo {
 		return res;
 	}
 
-	/**
-	 * Elimina il veicolo targato "targa"
-	 *
-	 * @param targa veicolo in questione
-	 * @return boolean che indica il successo dell'azione di DELETE
-	 */
-
 	public static boolean eliminaVeicolo(String targa) {
 		boolean res = false;
 		try {
@@ -212,13 +197,6 @@ public class Veicolo {
 		}
 		return res;
 	}
-
-	/**
-	 * Cerco il veicolo targato "targa"
-	 *
-	 * @param targa Targa veicolo in questione
-	 * @return boolean che indica il successo dell'azione della SELECT
-	 */
 
 	public static boolean trovaVeicolo(String targa) {
 		boolean res = false;
@@ -237,14 +215,6 @@ public class Veicolo {
 		}
 		return res;
 	}
-
-	/**
-	 * Imposta limite di velocita' al veicolo targato "targa"
-	 *
-	 * @param targa Targa veicolo in questione
-	 * @param limite Nuovo limite di velocita
-	 * @return boolean che indica il successo dell'azione di UPDATE
-	 */
 
 	public static boolean impostaLimite(String targa, int limite) {
 		boolean res = false;

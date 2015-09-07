@@ -23,6 +23,7 @@ public class ModificaLimitiServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, java.io.IOException {
 
+		// valutazione se si deve andare in uno dei modi DML
 		String azione = request.getSession().getAttribute("azione").toString();
 
 		if (azione.equalsIgnoreCase("Modifica")) {
