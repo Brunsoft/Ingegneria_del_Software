@@ -3,12 +3,13 @@
 	import="java.util.*" 
 	import="java.sql.*" %>
 <%
-	String user = ""+session.getAttribute("currUserEmail");
+	String user = "";
     char userMode = 'U';
     char minMode = 'A';
-    if(user.equals("null"))
+    if(session.getAttribute("currUserEmail") == null)
         response.sendRedirect("login.jsp");
     else {
+        user = session.getAttribute("currUserEmail").toString();
         userMode = session.getAttribute("currUserMode").toString().charAt(0);
 
 		if (minMode == 'A'){

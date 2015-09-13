@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <%
-    String user = ""+session.getAttribute("currUserEmail");
-    if(!user.equals("null"))
+    if(session.getAttribute("currUserEmail") != null)
         response.sendRedirect("welcomeUser.jsp");
 %>
 

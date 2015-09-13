@@ -6,10 +6,10 @@
 <%
 	String targa = "";
 	int limite = 0;
-	char privilegi = 'U';
-	String messaggio = "Sei sicuro di voler inserire il nuovo veicolo?", disabled = "";
-	String benvenuto = "INSERISCI VEICOLO";
-	
+	char privilegi = 'U';	
+	String messaggio = "Sei sicuro di voler confermare le modifiche?";
+	String disabled = "disabled";
+
 	String user = "";
     char userMode = 'U';
     char minMode = 'A';
@@ -38,9 +38,6 @@
 		targa = session.getAttribute("carLimSel").toString();
 		Veicolo veicoloSel = Veicolo.getVeicoloData(targa);
 		limite = veicoloSel.getLimite();
-		
-		messaggio = "Sei sicuro di voler confermare le modifiche?";
-		disabled = "disabled";
 	}
 %>
 
