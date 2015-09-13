@@ -174,7 +174,7 @@ public class ModificaUtentiServlet extends HttpServlet {
 		char value = request.getParameter("privilegi").toString().charAt(0);
 
 		if (value != utente && value != admin)
-			messaggio += "Il Livello di Privilegi deve essere A oppure U ("+value+")</br>";
+			messaggio += "Il Livello di Privilegi deve essere A oppure U </br>";
 
 		if (!messaggio.isEmpty()) {
 			request.getSession().setAttribute("messaggio", messaggio);

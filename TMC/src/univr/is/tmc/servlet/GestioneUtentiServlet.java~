@@ -54,7 +54,7 @@ public class GestioneUtentiServlet extends HttpServlet {
 					request.getSession().setAttribute("messaggio", "Errore!");
 				}
 			}else
-				request.getSession().setAttribute("messaggio", "Errore! Non puoi elliminare l'ultimo Amministratore!");
+				request.getSession().setAttribute("messaggio", "Errore! Non puoi eliminare l'ultimo Amministratore!");
 			response.sendRedirect("modificaEffettuata.jsp");
 		}
 	}

@@ -14,7 +14,7 @@ public class LoginServlet extends HttpServlet {
 	 * LoginServlet, 
      * if ( controllo credenziali = ok )
      *      set Attribute currUserEmail
-     *      se Attribute currUserMode
+     *      set Attribute currUserMode
      *      vai a welcomeUser.jsp
      * else
      *      vai a invalidLogin.jsp

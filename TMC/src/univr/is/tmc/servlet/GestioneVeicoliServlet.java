@@ -34,11 +34,11 @@ public class GestioneVeicoliServlet extends HttpServlet {
 		if (azione.equalsIgnoreCase("Nuovo Veicolo"))
 			response.sendRedirect("modificaVeicolo.jsp");
 
-		if (azione.equalsIgnoreCase("Modifica"))
+		if (azione.equalsIgnoreCase("Modifica")){
             // setAttribute di veicoloSel
 			request.getSession().setAttribute("veicoloSel", veicoloSel);
 			response.sendRedirect("modificaVeicolo.jsp");
-
+        }
 		if (azione.equalsIgnoreCase("Elimina")) {
 			// Elimina
 			if (Veicolo.eliminaVeicolo(veicoloSel)) {
