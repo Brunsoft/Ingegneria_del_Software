@@ -38,8 +38,13 @@
 			</form>
 		</div>
 		<hr/>
-		<div id="map-canvas" style="height:400px; width:100%;"></div>
-		<hr/>
+        <div>
+		    <div id="map-canvas" style="height:400px; width:60%; float:left;"></div>
+            <div id="video-canvas" style="height:400px; width:40%; float:left;">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/gbPXeiY-Ng0?fs=1&autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <hr/>
 		</br>
 		<a href="sceltaVeicoloFurto.jsp">LISTA FURTI ATTIVI</a><br/>
 		<a href="welcomeUser.jsp">HOMEPAGE</a>

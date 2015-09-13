@@ -42,7 +42,7 @@
 		<hr/>
 		<h3>Selezionare una funzionalita:</h3>
 			<% if( userMode == 'A' ){ %>
-				<fieldset style="width:250px; margin: 20px; ">  
+				<fieldset style="width:280px; margin: 20px; ">  
 		        	<legend>Operazioni Amministratore</legend>
 					<a href="gestioneUtenti.jsp">GESTIONE UTENTI</a><br/>
 					<a href="gestioneVeicoli.jsp">GESTIONE VEICOLI</a><br/>
@@ -52,7 +52,7 @@
 			<% } %>
 
 			<% if( userMode == 'U' || userMode == 'A'){ %>
-				<fieldset style="width:250px; margin: 20px; ">  
+				<fieldset style="width:280px; margin: 20px; ">  
 		        	<legend>Operazioni Utente</legend>
 					<a href="posizioneVeicoli.jsp">POSIZIONE VEICOLI</a><br/>
 					<a href="sceltaVeicoloFurto.jsp">LIVE TRACKING FURTO</a><br/>

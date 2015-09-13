@@ -42,7 +42,7 @@
 		<br/>
 		<a href="gestioneVeicoliUtente.jsp">ASSOCIA VEICOLI - UTENTE</a>
 		<br/>
-		<a href="gestioneLimite.jsp">GESTIONE LIMITI</a>
+		<a href="gestioneLimite.jsp">IMPOSTA ALLARMI - VELOCITA'</a>
 		<br/>
 		<br/>
 		<a href="welcomeUser.jsp">HOMEPAGE</a>

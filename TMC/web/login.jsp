@@ -2,6 +2,8 @@
 
 <%
     String user = ""+session.getAttribute("currUserEmail");
+    if(!user.equals("null"))
+        response.sendRedirect("welcomeUser.jsp");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,7 +15,6 @@
 	<body>
 		<h1>Track My Car</h1>
 		Sistema per localizzazione e recupero veicolo in caso di furto.
-		mail: <%=user%>
 		<br/>
 		<h2>LOGIN</h2>
 		<form action="LoginServlet" method="POST">

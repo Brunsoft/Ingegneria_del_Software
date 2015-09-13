@@ -64,7 +64,7 @@
 				</tbody>
 			</table>
 		<% } else { %>
-			<h1>Nessun allarme attivato su questo veicolo!</h1>
+			<h1>Nessuna infrazione riscontrata sul veicolo selezionato!</h1>
 		<% } %>
 		<hr/>
 		<a href="sceltaVeicolo.jsp">ELENCO VEICOLI</a><br/>

@@ -65,9 +65,8 @@
 				<hr/>
 				<input type="submit" name="azione" value="Guarda Percorso">
 			<% } else { %>
-				<h1>Nessun e' presente alcun furto!</h1>
+				<h1>Non e' presente alcun furto!</h1>
 				<h2>I tuoi veicoli non sono mai stati rubati.</h2>
-				<hr/>
 			<% } %>
 		</form>
 		<hr/>

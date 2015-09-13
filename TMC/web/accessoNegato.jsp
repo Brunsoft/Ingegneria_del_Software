@@ -2,7 +2,6 @@
 <%
 	String home = "login.jsp";
 	String mail = ""+session.getAttribute("currUserEmail");
-	char mode = (char) Integer.parseInt(session.getAttribute("currUserMode").toString());
 	if (session.getAttribute("currUserEmail") != null)
 		home = "welcomeUser.jsp";
 %>
@@ -15,12 +14,8 @@
 	</head>
 	<body>
 		<h1>Accesso negato</h1>
-		<h1>Non hai i privilegi per visualizzare questa pagina</h1>
-		mail: <%=mail%></br>
-		mode: <%=mode%>
-		</br>
-		<hr>
+		<h2>Non hai i privilegi per visualizzare questa pagina</h2>
+		<hr/>
 		<a href="<%=home%>">HOMEPAGE</a>
-		<hr>
 	</body>
 </html>

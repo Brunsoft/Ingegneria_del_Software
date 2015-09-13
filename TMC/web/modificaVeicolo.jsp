@@ -30,7 +30,7 @@
     }
 
 	if  (session.getAttribute("azione") == null || 
-		(session.getAttribute("azione").toString().equalsIgnoreCase("Modifica") && session.getAttribute("utenteSel") == null))
+		(session.getAttribute("azione").toString().equalsIgnoreCase("Modifica") && session.getAttribute("veicoloSel") == null))
 			response.sendRedirect("gestioneVeicoli.jsp");
 
 	if (session.getAttribute("azione").toString().equalsIgnoreCase("Modifica")) {
