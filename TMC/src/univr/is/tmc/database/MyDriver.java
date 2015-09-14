@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
+import org.jfree.data.jdbc.JDBCCategoryDataset;
+import org.jfree.data.jdbc.JDBCPieDataset;
+import org.jfree.data.jdbc.JDBCXYDataset;
 
 public class MyDriver {
 	private String sUrlDB;
@@ -80,6 +83,26 @@ public class MyDriver {
 		ResultSet result = null;
 		result = ps.executeQuery();
 		return result;
+	}
+	
+	// ========= MEtodi Custom per Report ===============================================
+
+	public JDBCCategoryDataset executeCategory(String query) throws SQLException {
+		JDBCCategoryDataset data = new JDBCCategoryDataset(connection);
+		data.executeQuery(query);
+		return data;
+	}
+
+	public JDBCPieDataset executePie(String query) throws SQLException {
+		JDBCPieDataset data = new JDBCPieDataset(connection);
+		data.executeQuery(query);
+		return data;
+	}
+
+	public JDBCXYDataset executeXY(String query) throws SQLException {
+		JDBCXYDataset data = new JDBCXYDataset(connection);
+		data.executeQuery(query);
+		return data;
 	}
 
 	public void close() throws SQLException {

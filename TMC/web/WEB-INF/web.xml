@@ -94,6 +94,12 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+	<servlet>
+        <servlet-name>ReportServlet</servlet-name>
+        <servlet-class>univr.is.tmc.servlet.ReportServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
 
 
 
@@ -165,6 +171,11 @@
 	<servlet-mapping>
         <servlet-name>AllarmiServlet</servlet-name>
         <url-pattern>/AllarmiServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+        <servlet-name>ReportServlet</servlet-name>
+        <url-pattern>/ReportServlet</url-pattern>
     </servlet-mapping>
 
 

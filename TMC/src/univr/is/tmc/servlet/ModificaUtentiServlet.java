@@ -64,13 +64,18 @@ public class ModificaUtentiServlet extends HttpServlet {
 	private boolean UpdateUtente(HttpServletRequest request) {
 		if (Utente.modificaUtente(
 				request.getSession().getAttribute("utenteSel").toString(),
-
 				request.getParameter("nome").toString(),
 				request.getParameter("cognome").toString(),
 				request.getParameter("password").toString(),
 				request.getParameter("privilegi").toString().charAt(0),
 				request.getParameter("telefono").toString())) {
+
 			// Modifica effettuata con successo
+			// Se ho modificato l'Utente corrente, aggiorno i suoi permessi
+				if(request.getSession().getAttribute("utenteSel").toString().equals( 
+					request.getSession().getAttribute("currUserEmail").toString() ) )
+						request.getSession().setAttribute("currUserMode", request.getParameter("privilegi").toString().charAt(0) );
+ 
 			request.getSession().setAttribute("messaggio", "Modifica effettuata con successo!");
 			return true;
 		} else {
